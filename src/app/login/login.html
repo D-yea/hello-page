@@ -1,0 +1,32 @@
+  <div class="loginbackground">
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <div class="login-circle">
+      <img src="https://picsum.photos/200/300" alt="Random Photo" class="avatar" />
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" >
+      <label>Username:</label>
+      <input type="email" name="Username" ngModel placeholder="Enter username in letters" required pattern="^[a-zA-Z ]+$" #username="ngModel" />
+      <div *ngIf="username.invalid && username.touched" style="color: blue ; font-size: 0.9em;">
+  Username can only contain letters and spaces.
+      </div>
+      <label>Password:</label>
+      <input type="password" name="password" ngModel placeholder="Enter password " required minlength="5" #password="ngModel"/>
+      <div *ngIf="password.errors?.['minlength'] " style="color: blue;">
+        Password should be of atleast 5 
+      </div>
+
+      <button type="submit" [disabled]="!loginForm.valid">Login</button>
+      
+  </form>
+  <div *ngIf="loggedIn" class="success-message">
+      Logged in!
+  
+ </div>
+  </div>
+  </div>
+
+
+
+

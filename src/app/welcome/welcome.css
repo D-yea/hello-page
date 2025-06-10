@@ -1,0 +1,22 @@
+.welcomepage 
+{ 
+  font-size: larger;
+  border: 8px solid wheat;
+   background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+}
+
+
+.welcometitle
+{ font-size: medium;
+    font-family: cursive;
+    
+
+}
+
+.photoimage
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
