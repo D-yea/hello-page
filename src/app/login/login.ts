@@ -41,8 +41,6 @@ export class Login {
         sessionStorage.setItem('username', Username );
 
 
-
-        
         this.router.navigate(['/welcome']);
       },
       error: (err) => {
