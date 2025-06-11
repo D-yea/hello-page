@@ -40,6 +40,9 @@ export class Login {
         //set usename in browser session
         sessionStorage.setItem('username', Username );
 
+
+
+        
         this.router.navigate(['/welcome']);
       },
       error: (err) => {
