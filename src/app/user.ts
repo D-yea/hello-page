@@ -7,9 +7,9 @@ export class User {
 
    private username:string=" ";
   set Username(name:string){
-    this.username= name;}
+    this.Username= name;}
     get Username(): string{
-      return this.username;
+      return this.Username;
     }
   
   }

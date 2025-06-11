@@ -9,10 +9,11 @@ import { User } from '../user';
   styleUrl: './welcome.css'
 })
 export class Welcome {
-  username: string = '';
-
-  constructor(private userService: User) {
-    this.username = this.userService.Username;  
-  }
+  Username: string = '';
+//get user from session
+username  = sessionStorage.getItem('username');
+  // constructor(private userService: User) {
+  //   this.username = this.userService.Username;  //get user from browser session
+  // }
 
 }

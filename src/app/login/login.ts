@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { User } from '../user';
 import { Router } from '@angular/router';
+import { Auth } from '../services/auth';  
 
 @Component({
   selector: 'app-login',
@@ -14,23 +15,38 @@ import { Router } from '@angular/router';
 export class Login {
   loggedIn = false;
   errorMessage = '';
-  username: string = '';
+  Username: string = '';
 
-  constructor(private userService: User, private router: Router) {}
+  constructor(private auth: Auth, private router: Router) {}
 
   onSubmit(form: any): void {
+    console.log('onSubmit()triggered');
     if (!form.valid) {
       this.errorMessage = 'Please fill all required fields correctly.';
       return;
     }
 
-    const username = form.value.Username;
-    this.userService.Username = username;
-    this.loggedIn = true;
-    this.errorMessage = '';
-    this.router.navigate(['/welcome']);
+
+  console.log('Form data:', form.value);
+
+    const Username = form.value.Username;
+    const password = form.value.password;  
+   
+    this.auth.login(Username, password, ).subscribe({
+      next: (response) => {
+      
+        this.loggedIn = true;
+        this.errorMessage = '';
+        //set usename in browser session
+        sessionStorage.setItem('username', Username );
+
+        this.router.navigate(['/welcome']);
+      },
+      error: (err) => {
+        console.error('Login failed:', err);
+        this.errorMessage = 'Login failed.';
+        this.loggedIn = false;
+      }
+    });
   }
 }
-
-
-

@@ -7,8 +7,8 @@
     </div>
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" >
       <label>Username:</label>
-      <input type="email" name="Username" ngModel placeholder="Enter username in letters" required pattern="^[a-zA-Z ]+$" #username="ngModel" />
-      <div *ngIf="username.invalid && username.touched" style="color: blue ; font-size: 0.9em;">
+      <input type="text" name="Username" ngModel placeholder="Enter username in letters" required pattern="^[a-zA-Z_]+$" #Username="ngModel" />
+      <div *ngIf="Username.invalid && Username.touched" style="color: blue ; font-size: 0.9em;">
   Username can only contain letters and spaces.
       </div>
       <label>Password:</label>
@@ -19,13 +19,21 @@
 
       <button type="submit" [disabled]="!loginForm.valid">Login</button>
       
-  </form>
+  
   <div *ngIf="loggedIn" class="success-message">
       Logged in!
+    
   
  </div>
+  <div *ngIf="!loggedIn && errorMessage" class="error-message">
+     
+   {{errorMessage}}
   </div>
-  </div>
+
+  
+
+  
+</form>
 
 
 
