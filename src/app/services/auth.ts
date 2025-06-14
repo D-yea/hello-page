@@ -6,10 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class Auth {
-private apiUrl = 'https://acme-sd-srv01.acmeplus.co:38771/api/v1/auth/login'; 
+  
+//private apiUrl = 'https://acme-sd-srv01.acmeplus.co:38771/api/v1/auth/login'; 
+private apiUrl = 'http://localhost:28781/v1/auth/login';
 constructor(private http: HttpClient) {}
 login(Username: string, password: string): Observable<any> {
     const body = {
+      
       userName:window.btoa(Username),
       password : window.btoa(password),
       lang :"en"
