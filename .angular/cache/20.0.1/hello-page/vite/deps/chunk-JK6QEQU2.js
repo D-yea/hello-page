@@ -4,16 +4,16 @@ import {
   ObserversModule,
   _IdGenerator,
   coerceBooleanProperty
-} from "./chunk-2LSZHINJ.js";
+} from "./chunk-KVCTIWUB.js";
 import {
   Platform
-} from "./chunk-SG2HMP6K.js";
+} from "./chunk-CMHL32AV.js";
 import {
   Directionality
-} from "./chunk-VPEWTKCM.js";
+} from "./chunk-6KLHA3OB.js";
 import {
   NgTemplateOutlet
-} from "./chunk-7DR2AYXB.js";
+} from "./chunk-T5U2QXEI.js";
 import {
   ANIMATION_MODULE_TYPE,
   ChangeDetectionStrategy,
@@ -84,7 +84,7 @@ import {
   ɵɵtextInterpolate,
   ɵɵviewQuery,
   ɵɵviewQuerySignal
-} from "./chunk-GKRQDVGD.js";
+} from "./chunk-WHRH4K3W.js";
 
 // node_modules/@angular/cdk/fesm2022/test-environment-CT0XxPyp.mjs
 function _isTestEnvironment() {
@@ -113,33 +113,6 @@ var PlatformModule = class _PlatformModule {
     args: [{}]
   }], null, null);
 })();
-
-// node_modules/@angular/cdk/fesm2022/layout.mjs
-var LayoutModule = class _LayoutModule {
-  static ɵfac = function LayoutModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _LayoutModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _LayoutModule
-  });
-  static ɵinj = ɵɵdefineInjector({});
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(LayoutModule, [{
-    type: NgModule,
-    args: [{}]
-  }], null, null);
-})();
-
-// node_modules/@angular/material/fesm2022/animation-DfMFjxHu.mjs
-var MATERIAL_ANIMATIONS = new InjectionToken("MATERIAL_ANIMATIONS");
-function _animationsDisabled() {
-  if (inject(MATERIAL_ANIMATIONS, { optional: true })?.animationsDisabled || inject(ANIMATION_MODULE_TYPE, { optional: true }) === "NoopAnimations") {
-    return true;
-  }
-  const mediaMatcher = inject(MediaMatcher);
-  return mediaMatcher.matchMedia("(prefers-reduced-motion)").matches;
-}
 
 // node_modules/@angular/cdk/fesm2022/observers/private.mjs
 var loopLimitExceededErrorHandler = (e) => {
@@ -253,6 +226,33 @@ var SharedResizeObserver = class _SharedResizeObserver {
     }]
   }], () => [], null);
 })();
+
+// node_modules/@angular/cdk/fesm2022/layout.mjs
+var LayoutModule = class _LayoutModule {
+  static ɵfac = function LayoutModule_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _LayoutModule)();
+  };
+  static ɵmod = ɵɵdefineNgModule({
+    type: _LayoutModule
+  });
+  static ɵinj = ɵɵdefineInjector({});
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(LayoutModule, [{
+    type: NgModule,
+    args: [{}]
+  }], null, null);
+})();
+
+// node_modules/@angular/material/fesm2022/animation-DfMFjxHu.mjs
+var MATERIAL_ANIMATIONS = new InjectionToken("MATERIAL_ANIMATIONS");
+function _animationsDisabled() {
+  if (inject(MATERIAL_ANIMATIONS, { optional: true })?.animationsDisabled || inject(ANIMATION_MODULE_TYPE, { optional: true }) === "NoopAnimations") {
+    return true;
+  }
+  const mediaMatcher = inject(MediaMatcher);
+  return mediaMatcher.matchMedia("(prefers-reduced-motion)").matches;
+}
 
 // node_modules/@angular/material/fesm2022/form-field-C9DZXojn.mjs
 var _c0 = ["notch"];
@@ -1705,4 +1705,4 @@ export {
   MatFormField,
   MatFormFieldModule
 };
-//# sourceMappingURL=chunk-JUKHIOCG.js.map
+//# sourceMappingURL=chunk-JK6QEQU2.js.map

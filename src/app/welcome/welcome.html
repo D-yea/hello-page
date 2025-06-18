@@ -2,28 +2,99 @@
 <div class="welcomepage">
 <div>
     <h1 style="color: azure; text-align: center;">WELCOME {{ username }}! </h1>
+ <button (click)="showCreateUserForm =true"> CREATE USER</button>
+ <div *ngIf="showCreateUserForm" class="createform">
+    <div class ="popup">
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <div class="form-row">
+<label> Username:</label>
+<input type="text" id="username" name="userName" ngModel required>
+<label> UserId:</label>
+<input type="text" id="userId" name="userId" ngModel required>
+<label> Email:</label>
+<input type="text" id="email" name="userEmail" ngModel required>
+<label> ContactNo:</label>
+<input type="text" id="contactno" name="userContactNo" ngModel required>
 
+<label>Password:</label>
+<input type="password" id="password" name="userPassword" ngModel required>
+
+<label>Group:</label>
+<input type="text" name="userGroupId" value="1" ngModel required>
+
+<label>Type:</label>
+<input type="text" name="userType" value="0" ngModel required>
+
+<label>Status:</label>
+<select name="userStatus" ngModel required>
+  <option [ngValue]="true">Enabled</option>
+  <option [ngValue]="false">Disabled</option>
+</select>
+
+
+    <button type="submit" [disabled]="userForm.invalid">Create</button>
+    <button type="button" (click)="showCreateUserForm = false">Cancel</button>
+    </div>
+  </form>
+  </div>
+</div>
+
+<!-- <button (click)="showUpdateUserForm = true">UPDATE USER</button> -->
+ 
+   
+<div *ngIf="showUpdateUserForm" class="updateform">
+  <div class="popupnew">
+    <form #updateForm="ngForm" (ngSubmit)="onUpdate(updateForm)">
+      <div class="form-row">
+
+      <label>UserName:</label>
+      <input type="text" name="userName" [(ngModel)]="updateUser.userName" required />
+
+      <label>Email:</label>
+      <input type="email" name="userEmail" [(ngModel)]="updateUser.userEmail" />
+
+      <label>ContactNo:</label>
+      <input type="text" name="userContactNo" [(ngModel)]="updateUser.userContactNo" />
+
+      <label>Type:</label>
+      <input type="text" name="userType" [(ngModel)]="updateUser.userType" />
+
+      <label>Group:</label>
+      <input type="text" name="userGroupId" [(ngModel)]="updateUser.userGroupId" required>  
+
+      
+      
+     <label>
+    <input type="checkbox" [(ngModel)]="changePassword" name="changePassword" /> Password:
+    </label>
+     <input type="password" id="password" name="userPassword" [(ngModel)]="updateUser.userPassword"
+     [attr.disabled]="!changePassword ? '' : null" [required]="changePassword" />
+      
     
+
+       <label>Status:</label>
+        <select name="userStatus" [(ngModel)]="updateUser.userStatus" required>
+            <option [ngValue]="true">Enabled</option>
+            <option [ngValue]="false">Disabled</option>
+        </select>
+     <button type="submit">Update</button>
+     <button type="button" (click)="showUpdateUserForm = false">Cancel</button>
+     
+</div>
+    </form>
 </div>
 </div>
+
+</div> 
+</div>
+
+
+
 <div class="welcometitle">
     <h2 style="color: rgb(93, 163, 244); text-align: center;"> This is your page {{username}}! </h2>
        
 
-<!-- </div>
 
- <div class="photoimage">
-       <div style="text-align: center; margin:20px 0;"> 
-
-         <label  >  SELECT YOUR OPTION: </label> 
- <select id="dropdown" [(ngModel)]="selectedOption" (change)="onStatusChange()">
-     <option value="" disabled selected hidden>select an option</option> 
-     <option *ngFor="let option of options" [value]="option"> 
-        {{option}} 
-    </option> 
- </select> 
-
- </div>   -->
 
  <form [formGroup]="form">
     <mat-form-field appearance="fill" style="width: 100%; margin: 20px 0;">
@@ -62,8 +133,15 @@
         <th mat-header-cell *matHeaderCellDef> Contact</th>
         <td mat-cell *matCellDef="let element"> {{element.userContactNo}}</td>
     </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> ACTION </th>
+    <td mat-cell *matCellDef="let element">
+      <button (click)="deleteRow(element.id)">Delete</button>
+      <!-- <button (click)="onUpdate(element)">Edit</button> -->
+      <button (click)="editUser(element)">Edit</button>
+    </td>
+    </ng-container>
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
     </table>
