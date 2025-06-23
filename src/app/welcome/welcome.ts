@@ -42,12 +42,14 @@ selectedOptionControl = new FormControl('');
   }
  
  logout(){
+  const confirmLogout = confirm('Are you sure you want to logout?');
+  if (confirmLogout)
    sessionStorage.removeItem('username');
    this.router.navigate(['/login']);
   }
 
   
-
+ 
   
   
   
@@ -61,7 +63,10 @@ displayedColumns: string[] = ['userId', 'userName','userEmail','userContactNo','
 
 
 onStatusChange() {
-  
+    this.isSearchActive = false;
+    this.searchUserId = '';        
+  this.userData = [];  
+
   const selected = this.form.get('selectedOption')?.value;
 
   console.log('Dropdown changed:', selected);
@@ -69,7 +74,8 @@ onStatusChange() {
 
   const status = selected === 'enabled' ? 1 : 0;
 
-  const url = `http://localhost:28781/v1/check/getStatus?userStatus=${status}`;
+  // const url = `http://localhost:28781/v1/check/getStatus?userStatus=${status}`;
+  const url='https://mocki.io/v1/18b93b6f-f7d9-4815-a4e6-549f30f9a515';
   const token = sessionStorage.getItem('authToken');
   const headers = token
     ? new HttpHeaders({ Authorization: `Bearer ${token}` })
@@ -116,7 +122,7 @@ onStatusChange() {
     userNoExpiry: false,
     userStatus: form.value.userStatus,
     userLastLogin: null,
-    userGroupId: form.value.userGroupId || 1,
+    userGroupId: form.value.userGroupId || "1",
     activeDirectoryUser: false,
     superUser: false,
     accountLocked: false,
@@ -188,7 +194,7 @@ editUser(user: any) {
     ...user,
     userEmail: user.userEmail || '',
     userContactNo: user.userContactNo || '',
-    userType: user.userType || '',
+    userType: user.userType || 0,
     userPassword: '', 
     userGroupId: user.userGroupId || 1,
     userStatus: user.userStatus ?? true
@@ -251,5 +257,51 @@ onUpdate(form: any) {
 }
 
 
+isSearchActive: boolean = false;
+
+searchUserId: string = '';
+ public userData: Response[] = [];
+searchByUserId() {
+  if (!this.searchUserId) {
+    alert('Please enter an ID to search.');
+    return;
+  }
+  this.isSearchActive = true;
+  const url = `http://localhost:28781/v1/check/getuserid?userId=${this.searchUserId}`;
+  const token = sessionStorage.getItem('authToken');
+
+  const headers = token
+    ? new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        lang: 'en'
+      })
+    : new HttpHeaders({
+        'Content-Type': 'application/json',
+        lang: 'en'
+      });
+
+ this.http.get<Response[]>(url, { headers }).subscribe({
+  next: (response) => {
+    this.userData = response;
+    console.log('User data:', response);
+  },
+  error: (err) => {
+    console.error('Error fetching user by ID:', err);
+  }
+});
 
 }
+
+clearSearch() {
+  this.isSearchActive = false;
+  this.searchUserId = '';
+  this.items = [];
+}
+
+
+
+
+}
+
+

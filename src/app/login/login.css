@@ -56,8 +56,8 @@ button {
   width: 100%;
   padding: 0.75rem;
   font-size: 1rem;
-  border: 1px solid #110046;
-  background-color: rgb(145, 228, 196);
+  border: 2px solid #110046;
+  background-color: rgb(178, 232, 238);
 }
 
 .login-circle {
@@ -89,7 +89,7 @@ button {
       opacity: 0.8;
     }
     
-    .password-container {
+    /* .password-container {
   position: relative;
   width: 100%;
 }
@@ -112,6 +112,65 @@ button {
   font-size: 5px;
   color: blue;
   background-color: aliceblue;
+} */
+
+
+.password-container {
+  position: relative;
+  /* display: inline-block; */
+  width: 100%; 
+  max-width: 400px;
+  margin: 10px auto;
 }
+
+.password-input {
+  width: 100%;
+  font-size: 16px;
+  padding:  10px 40px 10px 10px;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.input-icon-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.input-with-icon {
+  width: 100%;
+  padding: 10px 38px 10px 10px; /* space on right for 👁️ */
+  font-size: 16px;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.icon-inside-input {
+  position: absolute;
+  top: 70%;
+  right: 5px;
+  /* left: 5px; */
+  transform: translateY(-50%);
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+input.custom-border {
+  border: 2px solid #1542ab; 
+  padding: 6px;
+  border-radius: 4px;
+}
+
+input.custom-border:focus {
+  border-color: #1d4224;
+  outline: none; 
+}
+
 
   

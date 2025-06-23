@@ -6,23 +6,37 @@
       <img src="https://picsum.photos/200/300" alt="Random Photo" class="avatar" />
     </div>
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" >
-      <label>Username:</label>
-      <input type="text" name="Username" ngModel placeholder="Enter username in letters" required pattern="^[a-zA-Z_]+$" #Username="ngModel" style="text-transform: uppercase;" />
-      <div *ngIf="Username.invalid && Username.touched" style="color: blue ; font-size: 0.9em;">
-  Username can only contain letters and spaces.
-      </div>
-      <label>Password:</label>
       
-      <div class="'password-container">
-      <input [type]="showPassword ? 'text': 'password'" name="password" ngModel placeholder="Enter password " required minlength="5" #password="ngModel"/>
-        <button
+      <input  type="text"  class="custom-border" name="Username" ngModel placeholder="Enter username in letters" required pattern="^[a-zA-Z_]+$" #Username="ngModel" style="text-transform: uppercase;" />
+      <div *ngIf="Username.invalid && Username.touched" style="color: blue ; font-size: 0.9em;">
+      Username can only contain letters and underscore.
+      </div>
+      
+       <div class="'password-container">
+       <input [type]="showPassword ? 'text': 'password'" 
+        class="custom-border" 
+        name="password"
+         ngModel placeholder="ENTER PASSWORD " 
+         required minlength="5"
+          #password="ngModel"/>
+          
+        <!-- <button
         type="button"
         class="toggle-password"
         (click)="togglePasswordVisibility()"
         aria-label="Toggle password visibility"
         >
+        {{ showPassword ? '🙈' : '👁️' }}
         show password
-      </button>
+      </button> -->
+
+        <span
+    class="icon-inside-input"
+    (click)="togglePasswordVisibility()"
+    title="Show/Hide Password"
+  >
+    🔒
+  </span>
       </div >
 
       
@@ -48,7 +62,7 @@
 
   
 </form>
-
-
+</div>
+</div>
 
 

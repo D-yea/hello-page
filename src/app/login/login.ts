@@ -45,9 +45,9 @@ export class Login {
       
         this.loggedIn = true;
         this.errorMessage = '';
-        //set usename in browser session
+        
         sessionStorage.setItem('username', Username );
-       const token = response.accessToken; 
+        const token = response.accessToken; 
 
     if (token) {
             sessionStorage.setItem('authToken', token);

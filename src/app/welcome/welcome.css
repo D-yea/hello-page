@@ -6,6 +6,26 @@
 }
 
 
+.avatar {
+  background-color: #2196f3;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.user-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
 .welcometitle
 { font-size: medium;
     font-family: Georgia;
@@ -58,7 +78,7 @@ top:10px;
 right:10px;
 z-index:1000;
 border: 1px solid white ;
-background-color: rgb(101, 239, 229);
+background-color:  rgb(187, 234, 169);
 font-size: 1rem;
 }
 
@@ -138,4 +158,35 @@ font-size: 1rem;
 
 button:hover {
   background-color: #93cdec;
+}
+
+.search
+{
+ 
+ border: 3px solid rgba(10, 93, 5, 0.752);
+ 
+}
+
+
+.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-theme .mat-table {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.dark-theme th,
+.dark-theme td {
+  border-color: #444;
+}
+
+.dark-theme input,
+.dark-theme select,
+.dark-theme button {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #555;
 }
